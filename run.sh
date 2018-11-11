@@ -24,7 +24,6 @@ do
   [ $i = 60 ] && echo Tiller server timeout && exit 1
 done
 
-helm init --upgrade --service-account tiller
 helm repo add dmitrievav https://dmitrievav.github.io/helm/charts
 helm repo update dmitrievav
 
