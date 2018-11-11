@@ -54,9 +54,12 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
     calls++
   }
   fmt.Fprintf(w, "<p>Hostname: %s</p><p>You have called 'Hello, world!' %d times.</p>", hostname, calls)
+  fmt.Fprintf(w, "<table>")
   for key, value := range m {
-    fmt.Fprintf(w, "%s = %d", key, value)
-  } 
+    fmt.Fprintf(w, "<tr><td style='border: 1px solid black; padding: 1px'>%s</td>" +
+      "<td style='border: 1px solid black; padding: 1px'>%d</td></tr>", key, value)
+  }
+  fmt.Fprintf(w, "</table>") 
 }
 
 func init() {
