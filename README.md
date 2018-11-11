@@ -21,3 +21,5 @@ __Prerequisites:__
 ```
 ./run.sh
 ```
+
+Then open http://hellogo.minikube
