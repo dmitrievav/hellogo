@@ -1,0 +1,38 @@
+ingress:
+  enabled: true
+  hosts:
+    - hellogo.minikube
+  annotations:
+    #nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # type of authentication
+    #nginx.ingress.kubernetes.io/auth-type: basic
+    # name of the secret that contains the user/password definitions
+    #nginx.ingress.kubernetes.io/auth-secret: basic-auth
+    # message to display with an appropiate context why the authentication is required
+    #nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
+
+containerPort: 8080
+
+replicaCount: 3
+
+image:
+  repository: dmitrievav/hellogo
+  tag: latest
+  #tag: 1
+  #pullPolicy: IfNotPresent
+  pullPolicy: Always
+  secrets:
+    - name: gitlab-registry
+
+# resources:
+#   # We usually recommend not to specify default resources and to leave this as a conscious
+#   # choice for the user. This also increases chances charts run on environments with little
+#   # resources, such as Minikube. If you do want to specify resources, uncomment the following
+#   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+#   limits:
+#    cpu: 300m
+#    memory: 1024Mi
+#   requests:
+#    cpu: 300m
+#    memory: 1024Mi
+
